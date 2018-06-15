@@ -1,0 +1,25 @@
+---
+- hosts: apache # hosts to be configured
+  remote_user: root  
+
+  become: True
+  become_method: sudo
+  gather_facts: no
+##  sudo: yes # sudo permissions
+ 
+  tasks:
+ 
+   - name: update
+   
+     yum: update_cache=yes
+ 
+   - name: install apache
+ 
+     yum: name=apache state=present
+ 
+   - name: restart apache
+ 
+     service: name=apache state=restarted
+ 
+   - debug: msg="apache has been installed"
+... 
