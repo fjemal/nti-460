@@ -63,10 +63,10 @@
       with_items: "{{gce.instance_data | default({})}}"
       when: gce.instance_data is defined
     
-   # - name: range
-    #  prompt: echo "Enter client number you want to add (e.g. 1..6)"
-     # private: False
-      #default: "1"
+   - name: range
+      prompt: echo "Enter client number you want to add (e.g. 1..6)"
+      private: False
+      default: "1"
    
     - name: Set Client id variables
       set_fact:
